@@ -15,7 +15,7 @@ function AdminPage() {
   const [condition, setCondition] = useState('')
 
   const verify = () => {
-    axios.get('http://localhost:5000/generate/getlink',{
+    axios.get('https://project-sfa-backend.onrender.com/generate/getlink',{
       withCredentials:true
     })
     .then((res)=>{
@@ -31,11 +31,11 @@ function AdminPage() {
   useEffect(()=>{
     verify()
     const fetchData = () => {
-      axios.get('http://localhost:5000/generate/getlink', {
+      axios.get('https://project-sfa-backend.onrender.com/generate/getlink', {
         withCredentials: true
       })
       .then(async(res) => {
-        setLink(`http://localhost:3000/link/${res.data.sessionObj.link}`);
+        setLink(`https://project-sfa-frontend.onrender.com/link/${res.data.sessionObj.link}`);
         setParticipants(res.data.sessionObj.no_of_participants);
         setCondition(res.data.sessionObj.condition)
         console.log(41, res.data.sessionObj)
