@@ -4,7 +4,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
 // Create a socket connection only once
-const socket = io("http://localhost:5000", {
+const socket = io("wss://project-sfa-backend.onrender.com", {
   transports: ['websocket', 'polling'], // Use default transports
 });
 
