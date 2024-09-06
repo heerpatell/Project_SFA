@@ -13,7 +13,7 @@ function Screen2() {
 
   const verifyUser = () => {
     axios
-      .get("http://localhost:5000/generate/getlink", {
+      .get("https://project-sfa-backend.onrender.com/generate/getlink", {
         withCredentials: true,
       })
       .then((res) => {
@@ -29,7 +29,7 @@ function Screen2() {
 
   useEffect(()=>{
     verifyUser()
-    axios.get("http://localhost:5000/generate/getrounds",{
+    axios.get("https://project-sfa-backend.onrender.com/generate/getrounds",{
       withCredentials:true
     })
     .then((res)=>{
