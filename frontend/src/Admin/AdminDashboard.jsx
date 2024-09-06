@@ -36,9 +36,11 @@ function AdminDashboard() {
           .post("https://project-sfa-backend.onrender.com/generate/link", obj, {
             withCredentials: true,
           })
-          .then((res) => {
+          .then(async(res) => {
             console.log(40, res)
-            setLink(res.data.link);
+            await setLink(res.data.link);
+            console.log(42, res.data.link)
+            console.log(43, link)
             if (res.data.msg == "generated") {
               navigate("/adminpage");
             }
