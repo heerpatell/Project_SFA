@@ -131,8 +131,8 @@ router.get("/getlink", (req, res) => {
         res.status(201).send({ msg: "access denied" });
       }
 
-      const _id = decodedToken._id;
-      const sessionObj = await Sessions.findOne({ _id });
+      const link = decodedToken.link;
+      const sessionObj = await Sessions.findOne({ link });
       res.status(201).send({ sessionObj, msg: "access granted" }); //if token matches
     });
   }
