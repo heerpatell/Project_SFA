@@ -27,27 +27,25 @@ function AdminDashboard() {
     if (!participants || !condition) {
       alert("Enter details");
     } else if (participants % 2 !== 0) {
-      alert("Participants should be even number");
+      alert("Participants should be an even number");
       setInp({ ...inp, participants: "" });
     } else {
       try {
-        console.log(34, obj)
-        const response = await axios
-          .post("https://project-sfa-backend.onrender.com/generate/link", obj, {
-            withCredentials: true,
-          })
-          .then(async(res) => {
-            console.log(40, res)
-            await setLink(res.data.link);
-            console.log(42, res.data.link)
-            console.log(43, link)
-            if (res.data.msg == "generated") {
-              navigate("/adminpage");
-            }
-          });
+        const response = await axios.post(
+          "https://project-sfa-backend.onrender.com/generate/link",
+          obj,
+          { withCredentials: true }
+        );
 
+        if (response.data.link) {
+          setLink(response.data.link); // Set the link if available
+        }
+
+        if (response.data.msg === "generated") {
+          navigate("/adminpage");
+        }
       } catch (err) {
-        console.log(28, err);
+        console.error("Error generating link:", err);
       }
     }
   };
@@ -60,6 +58,12 @@ function AdminDashboard() {
       setCopySuccess("Failed to Copy!");
     }
   };
+
+  useEffect(() => {
+    if (link) {
+      console.log("Link has been set:", link);
+    }
+  }, [link]); 
 
   return (
     <>
@@ -150,7 +154,7 @@ function AdminDashboard() {
                 justifyContent: "space-between",
               }}
             >
-              Generated Link :<div style={{ color: "#6AD4DD" }}>{link}</div>
+              Generated Link: <div style={{ color: "#6AD4DD" }}>{link}</div>
               <MdOutlineContentCopy
                 onClick={() => copyclicked(link)}
                 style={{
