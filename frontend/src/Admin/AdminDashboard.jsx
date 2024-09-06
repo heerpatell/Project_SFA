@@ -40,7 +40,8 @@ function AdminDashboard() {
         if (response.data.link) {
           setLink(response.data.link); // Set the link if available
         }
-
+        console.log(43, response.data.link)
+                console.log(44,link)
         if (response.data.msg === "generated") {
           navigate("/adminpage");
         }
