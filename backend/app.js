@@ -4,7 +4,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { Server } = require('socket.io');
-const port = process.env.PORT || 5000; // Use the same port for both HTTP and WebSocket
+
+const port = 5000; // Fixed port number
 
 const app = express();
 app.use(express.json());
@@ -62,12 +63,8 @@ io.on('connection', (socket) => {
         console.log('screen11-reached event received');
 
         // Check if the participant is already counted
-        console.log(64, socket.hasEmitted)
         if (!socket.hasEmitted) {
             participantsReachedScreen11++;
-            // socket.hasEmitted = true; // Mark this socket as having emitted the event
-            
-            // console.log(69, participantsReachedScreen11)
             io.emit('update-count', participantsReachedScreen11);
 
             // Check if the threshold is reached
@@ -77,43 +74,45 @@ io.on('connection', (socket) => {
             }
         }
     });
-    socket.on('nextto15normal', ({participant})=>{
-        io.emit('moveto15',{participant}); 
-    })
-    socket.on('nextto15Pre', ()=>{
+
+    // Other socket events
+    socket.on('nextto15normal', ({participant}) => {
+        io.emit('moveto15', {participant}); 
+    });
+
+    socket.on('nextto15Pre', () => {
         io.emit('moveto12'); 
-    })
-    socket.on('nextto15post',(data)=>{
+    });
+
+    socket.on('nextto15post', (data) => {
         const { currentPnumber } = data;
         socket.emit('movetoWaiting', { currentPnumber });
         socket.broadcast.emit('moveto15Post', { exceptPnumber: currentPnumber });
-    })
+    });
+
     socket.on('nextto14', (data) => {
         const { currentPnumber } = data;
-    
-        // Emit event to move current participant to the waiting screen
         socket.emit('movetoWaiting', { currentPnumber });
-    
-        // Broadcast event to move all other participants to screen 14
         socket.broadcast.emit('moveto14', { exceptPnumber: currentPnumber });
     });
 
-    socket.on('nextto13',()=>{
+    socket.on('nextto13', () => {
         if (!socket.hasEmitted) {
-            io.emit('moveto13')
+            io.emit('moveto13');
         }
-    })
-    socket.on('nextto17',()=>{
-        io.emit('moveto17')
-    })
-    socket.on('nextto18',()=>{
-        io.emit('moveto18')
-    })
+    });
+
+    socket.on('nextto17', () => {
+        io.emit('moveto17');
+    });
+
+    socket.on('nextto18', () => {
+        io.emit('moveto18');
+    });
+
     // Handle disconnections
     socket.on('disconnect', () => {
         console.log('A user disconnected');
-
-        // Remove socket from participants set and reset its flag
         participants.delete(socket.id);
         socket.hasEmitted = false; // Reset for future use
     });
