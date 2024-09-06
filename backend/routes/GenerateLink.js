@@ -13,7 +13,7 @@ router.route("/link").post(async (req, res) => {
     const { participants, condition } = req.body;
     console.log(14, participants, condition)
     const uniqueLinkID = Math.random().toString(36).substring(7);
-    const link = `http://192.168.2.34/link/${uniqueLinkID}`;
+    const link = `https://project-sfa-frontend.onrender.com/link/${uniqueLinkID}`;
     console.log(17,uniqueLinkID)
     const round = 10
     const savedSession = new Sessions({
