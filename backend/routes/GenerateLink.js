@@ -120,6 +120,7 @@ router.post("/page/:linkId", async (req, res) => {
 
 router.get("/getlink", (req, res) => {
   const token = req.cookies.jwt;
+  console.log(122, token)
   if (token === undefined || token == "") {
     //if token does not exist
     res.status(201).send({ msg: "access denied" });
@@ -132,7 +133,9 @@ router.get("/getlink", (req, res) => {
       }
 
       const link = decodedToken.link;
+      console.log(136, link)
       const sessionObj = await Sessions.findOne({ link });
+      console.log(138, sessionObj)
       res.status(201).send({ sessionObj, msg: "access granted" }); //if token matches
     });
   }
