@@ -35,6 +35,7 @@ function AdminPage() {
         withCredentials: true
       })
       .then(async(res) => {
+        console.log(38, res.data)
         setLink(`https://project-sfa-frontend.onrender.com/link/${res.data.sessionObj.link}`);
         setParticipants(res.data.sessionObj.no_of_participants);
         setCondition(res.data.sessionObj.condition)
