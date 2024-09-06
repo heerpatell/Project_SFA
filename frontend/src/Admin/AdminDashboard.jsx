@@ -13,26 +13,6 @@ function AdminDashboard() {
   const [link, setLink] = useState("");
   const [copySuccess, setCopySuccess] = useState("");
 
-  // const verify = () => {
-  //   axios
-  //     .get("http://localhost:5000/generate/getlink", {
-  //       withCredentials: true,
-  //     })
-  //     .then((res) => {
-  //       console.log(21, res.data);
-  //       if (res.data.msg === "access denied") {
-  //         navigate("/notfound");
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       navigate("/notfound");
-  //     });
-  // };
-
-  useEffect(() => {
-    // verify()
-  }, []);
-
   const handleInp = (e) => {
     const { name, value } = e.target;
     setInp({ ...inp, [name]: value });
