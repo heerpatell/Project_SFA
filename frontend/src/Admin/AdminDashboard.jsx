@@ -31,6 +31,7 @@ function AdminDashboard() {
       setInp({ ...inp, participants: "" });
     } else {
       try {
+        console.log(34, obj)
         const response = await axios
           .post("https://project-sfa-backend.onrender.com/generate/link", obj, {
             withCredentials: true,
