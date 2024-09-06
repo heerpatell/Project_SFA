@@ -1,0 +1,54 @@
+.participant-info-outer {
+    background-color: black;
+    height: 100%;
+    padding: 5rem 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .participant-info-box {
+        font-size: 1.3rem;
+        height: 100%;
+        text-align: justify;
+        .participant-info-heading{
+            font-size: 2rem;
+            color: aliceblue;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .participant-info-content{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            .input-heading-participant-info {
+                color: aliceblue;
+                letter-spacing: 0.05rem;
+                font-size: 1.3rem;
+            }
+            .input-text-participant-info {
+                width: 12rem;
+                color: #6AD4DD;
+                font-size: 1.3rem;
+                border: none;
+                padding: 0.5rem;
+                border: 1px solid #6AD4DD;
+                background-color: transparent;
+                outline: none;
+                margin: 1rem;
+            }
+        }
+        .participant-info-start{
+            cursor: pointer;
+            margin: auto;
+            margin-top: 2rem;
+            width: 11rem;
+            border-radius: 0.2rem;
+            height: 3rem;
+            font-size: 1.4rem;
+            color: black;
+            background-color: #6AD4DD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

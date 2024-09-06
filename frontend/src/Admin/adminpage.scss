@@ -1,0 +1,38 @@
+.adminpage-outer{
+    background-color: black;
+    color: aliceblue;
+    height: 100vh;
+    padding: 2rem;
+    .adminpage-content{
+        height: 100vh;
+        .secondrow-adminpage{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 2rem;
+        }
+        .thirdrow-adminpage{
+            border: 1px solid #6AD4DD;
+            padding: 2rem;
+            display: flex;
+            margin: auto;
+            margin-top: 2rem;
+            justify-content: center;
+            width: 50rem;
+        }
+        .fourthrow-adminpage{
+            .startbtn-adminpage{
+                font-size:1.4rem;
+                padding:1rem;
+                background-color: #6AD4DD;
+                color: black;
+                border-radius: 0.3rem;
+                display: flex;
+                margin:auto;
+                margin-top: 2rem;
+                width: 10rem;
+                justify-content: center;
+                cursor:pointer; 
+            }        
+        }
+    }
+}

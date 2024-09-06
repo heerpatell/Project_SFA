@@ -1,0 +1,12 @@
+.participantpage-main{
+    background-color: black;
+    color: aliceblue;
+    .participantpage-content{
+        height: 100vh;
+        .participant-page-waitText{
+            font-size: 2rem;
+            text-align: center;
+            padding-top: 45vh;
+        }
+    }
+}

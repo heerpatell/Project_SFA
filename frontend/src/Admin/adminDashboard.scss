@@ -1,0 +1,49 @@
+.admin-dashboard-outer{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .admin-dashoard-content{
+        .admin-dashbaord-row{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .admin-dashboard-label{
+                color: aliceblue;
+                letter-spacing: 0.05rem;
+                font-size: 1.3rem;
+            }
+            .admin-dashboard-input{
+                width: 12rem;
+                color: #6AD4DD;
+                font-size: 1.3rem;
+                border: none;
+                padding: 0.5rem;
+                border: 1px solid #6AD4DD;
+                background-color: transparent;
+                outline: none;
+                margin: 1rem;
+            }
+            .admin-dashboard-input[type="number"]::-webkit-inner-spin-button,
+            .admin-dashboard-input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+        }
+        .admin-dashbaord-generate{
+            cursor: pointer;
+            margin: auto;
+            margin-top: 2rem;
+            width: 11rem;
+            border-radius: 0.2rem;
+            height: 3rem;
+            font-size: 1.4rem;
+            color: black;
+            background-color: #6AD4DD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
