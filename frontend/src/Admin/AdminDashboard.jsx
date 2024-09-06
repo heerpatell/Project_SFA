@@ -52,7 +52,7 @@ function AdminDashboard() {
     } else {
       try {
         const response = await axios
-          .post("http://localhost:5000/generate/link", obj, {
+          .post("https://project-sfa-backend.onrender.com/generate/link", obj, {
             withCredentials: true,
           })
           .then((res) => {
