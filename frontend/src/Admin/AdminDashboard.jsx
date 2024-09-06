@@ -38,11 +38,11 @@ function AdminDashboard() {
           })
           .then((res) => {
             console.log(40, res)
-            if (res.data.msg === "generated") {
+            if (res.data.msg == "generated") {
               navigate("/adminpage");
             }
           });
-        // console.log(25, response.data);
+        console.log(25, response.data);
 
         setLink(response.data.link);
       } catch (err) {
