@@ -12,7 +12,7 @@ function Screen1() {
 
   const verifyUser = () => {
     axios
-      .get("http://localhost:5000/generate/getlink", {
+      .get("https://project-sfa-backend.onrender.com/generate/getlink", {
         withCredentials: true,
       })
       .then((res) => {
