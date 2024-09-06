@@ -11,10 +11,10 @@ let links = {};
 router.route("/link").post(async (req, res) => {
   try {
     const { participants, condition } = req.body;
-
+    console.log(14, participants, condition)
     const uniqueLinkID = Math.random().toString(36).substring(7);
     const link = `http://192.168.2.34/link/${uniqueLinkID}`;
-
+    console.log(17,uniqueLinkID)
     const round = 10
     const savedSession = new Sessions({
       no_of_participants: participants,
@@ -66,7 +66,7 @@ router.route("/link").post(async (req, res) => {
       stage:0
     }).save();
 
-    // console.log(66, savedRound);
+    console.log(66, savedRound);
 
     res.json({ link: link, msg: "generated" });
   } catch (e) {
