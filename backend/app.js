@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { Server } = require('socket.io');
-const port = 5000; // Use the same port for both HTTP and WebSocket
+const port = process.env.PORT || 5000; // Use the same port for both HTTP and WebSocket
 
 const app = express();
 app.use(express.json());
@@ -38,7 +38,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: "https://project-sfa-frontend.onrender.com",
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
