@@ -37,6 +37,7 @@ function AdminDashboard() {
             withCredentials: true,
           })
           .then((res) => {
+            console.log(40, res)
             if (res.data.msg === "generated") {
               navigate("/adminpage");
             }
