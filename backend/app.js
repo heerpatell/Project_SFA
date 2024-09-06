@@ -12,7 +12,7 @@ app.use(cookieParser());
 
 // Configure CORS to allow requests from your frontend
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://project-sfa-frontend.onrender.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
 }));
@@ -37,7 +37,7 @@ const server = http.createServer(app);
 // Configure Socket.io server with proper CORS settings
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://project-sfa-frontend.onrender.com",
         methods: ["GET", "POST"]
     }
 });
