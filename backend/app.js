@@ -17,7 +17,16 @@ app.use(cors({
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
 }));
-
+app.use(session({
+  secret: 'your-secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: true, // Cookies only sent over HTTPS
+    httpOnly: true,
+    sameSite: 'None', // Required for cross-origin cookies
+  }
+}));
 // Connect to MongoDB
 mongoose.set("strictQuery", false);
 mongoose.connect('mongodb+srv://heerpatel291:m5KyN7OLLpObqPvY@cluster0.h8ra2k6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
