@@ -54,8 +54,7 @@ router.route("/link").post(async (req, res) => {
     var date = new Date();
     date.setTime(date.getTime() + 3600 * 2000);
     res.cookie("jwt", token, {
-      httpOnly: true,
-      expires: date,
+      expires: date
     });
     const savedRound = await new Rounds({
       sessionId: savedSessionId,
